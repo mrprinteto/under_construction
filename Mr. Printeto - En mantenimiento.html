@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Printeto - En mantenimiento</title>
+  <link rel="stylesheet" href="./Mr. Printeto - En mantenimiento_files/style.css">
+</head>
+<body>
+  <canvas id="background" width="1920" height="953"></canvas>
+
+  <div class="container">
+    <h1>🛠️ Mr. Printeto</h1>
+    <p>Estamos mejorando nuestra web para ofrecerte la mejor experiencia en impresión 3D.</p>
+    <div class="gear">⚙️</div>
+    <footer>© 2025 Mr. Printeto</footer>
+  </div>
+
+  <script>
+    // Fondo animado con puntos flotantes
+    const canvas = document.getElementById("background");
+    const ctx = canvas.getContext("2d");
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    let dots = Array.from({ length: 100 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.5 + 0.5
+    }));
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      dots.forEach(dot => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+        ctx.fillStyle = "#4ade80";
+        ctx.fill();
+        dot.y += 0.3;
+        if (dot.y > height) {
+          dot.y = 0;
+          dot.x = Math.random() * width;
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+  </script>
+
+</body></html>
