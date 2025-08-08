@@ -46,9 +46,13 @@ p {
 }
 
 footer {
-  margin-top: 3rem;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: #5f6874;
+  z-index: 2;
 }
 
 @keyframes spin {
